@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "S24_Caleb_Perez", "S24_Caleb_Perez\S24_Caleb_Perez.vcxproj", "{DF00824A-2644-433A-8D2D-DFD4A7EB23E8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "disUnity", "disUnity\disUnity.vcxproj", "{999AFC76-FE02-4414-9EE6-AEC7755B7B1A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DF00824A-2644-433A-8D2D-DFD4A7EB23E8}.Debug|x64.ActiveCfg = Debug|x64
+		{DF00824A-2644-433A-8D2D-DFD4A7EB23E8}.Debug|x64.Build.0 = Debug|x64
+		{DF00824A-2644-433A-8D2D-DFD4A7EB23E8}.Release|x64.ActiveCfg = Release|x64
+		{DF00824A-2644-433A-8D2D-DFD4A7EB23E8}.Release|x64.Build.0 = Release|x64
+		{999AFC76-FE02-4414-9EE6-AEC7755B7B1A}.Debug|x64.ActiveCfg = Debug|x64
+		{999AFC76-FE02-4414-9EE6-AEC7755B7B1A}.Debug|x64.Build.0 = Debug|x64
+		{999AFC76-FE02-4414-9EE6-AEC7755B7B1A}.Release|x64.ActiveCfg = Release|x64
+		{999AFC76-FE02-4414-9EE6-AEC7755B7B1A}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {32238222-2652-428C-85D0-D664D495B272}
+	EndGlobalSection
+EndGlobal

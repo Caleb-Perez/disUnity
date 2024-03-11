@@ -1,8 +1,14 @@
 cmake_minimum_required(VERSION 3.24)
 
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_MINIMUM_REQUIRED Tree)
+project(S24_Game)
 
-add_definitions(-DDISUNITY_DEBUG = 2)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_MINIMUM_REQUIRED True)
+
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR})
+
+add_subdirectory(glfw)
 add_subdirectory(disUnity)
 add_subdirectory(S24_Caleb_Perez)
+
+set_property(DIRECTORY PROPERTY VS_STARTUP_PROJECT Game)

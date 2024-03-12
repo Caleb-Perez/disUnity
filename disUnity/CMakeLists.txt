@@ -33,7 +33,7 @@ if(MSVC)
 endif()
 
 target_include_directories(disUnity PRIVATE ../glfw/include)
-target_include_directories(disUnity PRIVATE ../disUnity)
+target_include_directories(disUnity PRIVATE ../disUnity/src)
 
 target_precompile_headers(disUnity PRIVATE src/pch.h)
 

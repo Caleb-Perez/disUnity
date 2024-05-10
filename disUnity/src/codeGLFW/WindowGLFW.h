@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../WindowImpl.h"
+#include "WindowImpl.h"
 #include "GLFW/glfw3.h"
 
 namespace disUnity {

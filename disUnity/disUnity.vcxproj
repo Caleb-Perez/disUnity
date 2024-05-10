@@ -106,7 +106,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(SolutionDir)disUnity\src;$(SolutionDir)glfw\include;$(SolutionDir)glad\include;$(SolutionDir)stbi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)disUnity\src;$(SolutionDir)glfw\include;$(SolutionDir)glad\include;$(SolutionDir)stbi;$(SolutionDir)disUnity\src\codeOpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -124,7 +124,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>$(SolutionDir)disUnity\src;$(SolutionDir)glfw\include;$(SolutionDir)glad\include;$(SolutionDir)stbi;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)disUnity\src;$(SolutionDir)glfw\include;$(SolutionDir)glad\include;$(SolutionDir)stbi;$(SolutionDir)disUnity\src\codeOpenGL;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
@@ -137,13 +137,16 @@
   <ItemGroup>
     <ClInclude Include="include\disUnity.h" />
     <ClInclude Include="src\codeGLFW\WindowGLFW.h" />
+    <ClInclude Include="src\codeOpenGL\RendererOpenGL.h" />
     <ClInclude Include="src\codeOpenGL\ShaderOpenGL.h" />
     <ClInclude Include="src\codeOpenGL\ImageOpenGL.h" />
     <ClInclude Include="src\disUnityApplication.h" />
     <ClInclude Include="src\disUnityWindow.h" />
+    <ClInclude Include="src\RendererImplement.h" />
     <ClInclude Include="src\Image.h" />
     <ClInclude Include="src\ImageImplement.h" />
     <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\Renderer.h" />
     <ClInclude Include="src\Shader.h" />
     <ClInclude Include="src\ShaderImplement.h" />
     <ClInclude Include="src\Utility.h" />
@@ -152,6 +155,8 @@
   <ItemGroup>
     <ClCompile Include="src\codeGLFW\WindowGLFW.cpp" />
     <ClCompile Include="src\codeOpenGL\ImageOpenGL.cpp" />
+    <ClCompile Include="src\codeOpenGL\RendererOpenGL.cpp" />
+    <ClCompile Include="src\codeOpenGL\Shader.cpp" />
     <ClCompile Include="src\codeOpenGL\ShaderOpenGL.cpp" />
     <ClCompile Include="src\disUnityApplication.cpp" />
     <ClCompile Include="src\disUnityWindow.cpp" />
@@ -160,6 +165,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\Renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\glad\glad.vcxproj">

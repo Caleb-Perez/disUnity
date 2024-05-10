@@ -5,55 +5,64 @@
 #include "GLFW/glfw3.h"
 #include "stb_image.h"
 #include "codeOpenGL/ImageOpenGL.h"
+#include "Renderer.h"
 #include "Image.h"
 #include "Shader.h"
 
 namespace disUnity {
-
-}
-
-void disUnity::disUnityApplication::Initialize()
-{
-}
-
-void disUnity::disUnityApplication::OnUpdate()
-{
-}
-
-void disUnity::disUnityApplication::Shutdown()
-{
-}
-
-void disUnity::disUnityApplication::Run() {
-	disUnityWindow::Init();
-	disUnityWindow::GetWindow()->Create(1000, 800);
-
-
-
-	Shader sProg{"C:/Users/Caleb/source/repos/S24_Caleb_Perez/disUnity/Assets/Shaders/DefaultVertexShader", "C:/Users/Caleb/source/repos/S24_Caleb_Perez/disUnity/Assets/Shaders/DefaultFragmentShader"};
-
-
-
-	disUnity::Image pic("C:/Users/Caleb/source/repos/S24_Caleb_Perez/disUnity/Assets/test.png");
-
-	Initialize();
-
-	while (true) {
-
-		OnUpdate();
-
-		glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
-		glClear(GL_COLOR_BUFFER_BIT);
-
-		sProg.Bind();
-		glBindVertexArray(VAO);
-		pic.Bind();
-
-		disUnityWindow::GetWindow()->SwapBuffers();
-		disUnityWindow::GetWindow()->PollEvents();
+	void disUnityApplication::Initialize()
+	{
 	}
-	
-	Shutdown();
 
-	disUnityWindow::ShutDown();
+	void disUnityApplication::OnUpdate()
+	{
+	}
+
+	void disUnityApplication::Shutdown()
+	{
+	}
+
+	void disUnityApplication::Run() {
+
+		disUnityWindow::Init();
+		disUnityWindow::GetWindow()->Create(1000, 800);
+		Renderer::Init();
+
+
+
+		Shader sProg{ "C:/Users/Caleb/source/repos/S24_Caleb_Perez/disUnity/Assets/Shaders/DefaultVertexShader", "C:/Users/Caleb/source/repos/S24_Caleb_Perez/disUnity/Assets/Shaders/DefaultFragmentShader" };
+
+
+
+		Image pic("C:/Users/Caleb/source/repos/S24_Caleb_Perez/disUnity/Assets/test.png");
+
+		Initialize();
+
+		mNextFrameTime = std::chrono::steady_clock::now() + mFrameDuration;
+
+		int x = 50;
+
+		while (true) {
+
+			Renderer::ClearScreen();
+
+			OnUpdate();
+
+
+
+			Renderer::Draw(pic, x, 100);
+			//x += 2;
+
+			std::this_thread::sleep_until(mNextFrameTime);
+			mNextFrameTime = std::chrono::steady_clock::now() + mFrameDuration;
+
+			disUnityWindow::GetWindow()->SwapBuffers();
+			disUnityWindow::GetWindow()->PollEvents();
+		}
+
+		Shutdown();
+
+		disUnityWindow::ShutDown();
+	}
 }
+

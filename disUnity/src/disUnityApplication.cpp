@@ -30,8 +30,7 @@ namespace disUnity {
 
 
 
-		Shader sProg{ "C:/Users/Caleb/source/repos/S24_Caleb_Perez/disUnity/Assets/Shaders/DefaultVertexShader", "C:/Users/Caleb/source/repos/S24_Caleb_Perez/disUnity/Assets/Shaders/DefaultFragmentShader" };
-
+		
 
 
 		Image pic("C:/Users/Caleb/source/repos/S24_Caleb_Perez/disUnity/Assets/test.png");
@@ -51,7 +50,7 @@ namespace disUnity {
 
 
 			Renderer::Draw(pic, x, 100);
-			//x += 2;
+			x += 2;
 
 			std::this_thread::sleep_until(mNextFrameTime);
 			mNextFrameTime = std::chrono::steady_clock::now() + mFrameDuration;

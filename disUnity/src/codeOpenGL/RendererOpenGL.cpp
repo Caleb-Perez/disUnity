@@ -23,17 +23,17 @@ namespace disUnity {
 	RendererOpenGL::~RendererOpenGL() {
 
 	}
-
+	
 	void RendererOpenGL::Draw(Image& pic, int x, int y) {
 		unsigned int VBO, VAO;
 		glGenVertexArrays(1, &VAO);
 		glBindVertexArray(VAO);
 
 		float vertices[] = {
-			x, y, 0.0, 0.0, //bottom left
-			x + pic.GetWidth(), y, -0.5f, 0.0, 0.0, //bottom right
-			x, y + pic.GetHeight(), - 0.5f, 0.5f, 0.0, 0.0,
-			x + pic.GetWidth(), y + pic.GetHeight(), 0.0, 0.0, //upper right
+	x, y,            0.0f, 0.0f, // bottom left
+			x + pic.GetWidth(), y,            1.0f, 0.0f, // bottom right
+			x, y + pic.GetHeight(),           0.0f, 1.0f, // top left
+			x + pic.GetWidth(), y + pic.GetHeight(), 1.0f, 1.0f  // top right
 		};
 
 		unsigned int indices[] = {

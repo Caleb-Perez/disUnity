@@ -8,6 +8,7 @@
 #include "Renderer.h"
 #include "Image.h"
 #include "Shader.h"
+#include "disUnityKeys.h"
 
 namespace disUnity {
 	void disUnityApplication::Initialize()
@@ -41,6 +42,11 @@ namespace disUnity {
 
 		int x = 50;
 
+		SetKeyPressedCallback([&x](const KeyPressed& event) {
+			if (event.GetKeyCode() == DISUNITY_KEY_RIGHT)
+				x += 50;
+		});
+
 		while (true) {
 
 			Renderer::ClearScreen();
@@ -48,9 +54,8 @@ namespace disUnity {
 			OnUpdate();
 
 
-
+			//x %= 800;
 			Renderer::Draw(pic, x, 100);
-			x += 2;
 
 			std::this_thread::sleep_until(mNextFrameTime);
 			mNextFrameTime = std::chrono::steady_clock::now() + mFrameDuration;
@@ -62,6 +67,18 @@ namespace disUnity {
 		Shutdown();
 
 		disUnityWindow::ShutDown();
+	}
+
+	void disUnityApplication::SetKeyPressedCallback(std::function<void(const KeyPressed&)> callbackFunc) {
+		disUnityWindow::GetWindow()->SetKeyPressedCallback(callbackFunc);
+	}
+
+	void disUnityApplication::SetKeyReleasedCallback(std::function<void(const KeyReleased&)> callbackFunc) {
+		disUnityWindow::GetWindow()->SetKeyReleasedCallback(callbackFunc);
+	}
+
+	void disUnityApplication::SetWindowCloseCallback(std::function<void()> callbackFunc) {
+		disUnityWindow::GetWindow()->SetWindowCloseCallback(callbackFunc);
 	}
 }
 

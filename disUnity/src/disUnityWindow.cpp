@@ -45,4 +45,17 @@ namespace disUnity {
 	void disUnityWindow::ShutDown() {
 		delete mInstance;
 	}
+
+	void disUnityWindow::SetKeyPressedCallback(std::function<void(const KeyPressed&)> callbackFunc) {
+		mWindow->SetKeyPressedCallback(callbackFunc);
+	}
+
+	void disUnityWindow::SetKeyReleasedCallback(std::function<void(const KeyReleased&)> callbackFunc) {
+		mWindow->SetKeyReleasedCallback(callbackFunc);
+	}
+
+	void disUnityWindow::SetWindowCloseCallback(std::function<void()> callbackFunc) {
+		mWindow->SetWindowCloseCallback(callbackFunc);
+	}
+
 } 

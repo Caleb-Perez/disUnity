@@ -2,6 +2,7 @@
 #include "pch.h"
 #include "Utility.h"
 #include "Image.h"
+//#include "Unit.cpp"
 
 namespace disUnity {
 	class DISUNITY_API Unit {
@@ -23,6 +24,7 @@ namespace disUnity {
 		int mYPosition;
 
 		friend DISUNITY_API bool UnitsOverlap(const Unit& a, const Unit& b);
+		friend class Renderer;
 	};
 
 	DISUNITY_API bool UnitsOverlap(const Unit& a, const Unit& b);

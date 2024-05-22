@@ -159,7 +159,6 @@
     <ClCompile Include="src\codeGLFW\WindowGLFW.cpp" />
     <ClCompile Include="src\codeOpenGL\ImageOpenGL.cpp" />
     <ClCompile Include="src\codeOpenGL\RendererOpenGL.cpp" />
-    <ClCompile Include="src\codeOpenGL\Shader.cpp" />
     <ClCompile Include="src\codeOpenGL\ShaderOpenGL.cpp" />
     <ClCompile Include="src\disUnityApplication.cpp" />
     <ClCompile Include="src\disUnityEvents.cpp" />
@@ -170,6 +169,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="src\Renderer.cpp" />
+    <ClCompile Include="src\Shader.cpp" />
     <ClCompile Include="src\Unit.cpp" />
   </ItemGroup>
   <ItemGroup>

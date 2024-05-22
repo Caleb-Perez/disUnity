@@ -1,6 +1,6 @@
 #pragma once
 
-#ifdef DISUNITY_GLFW_WINDOW
+//#ifdef DISUNITY_GLFW_WINDOW
 	#define DISUNITY_KEY_SPACE              32
 	#define DISUNITY_KEY_APOSTROPHE         39  /* ' */
 	#define DISUNITY_KEY_COMMA              44  /* , */
@@ -123,6 +123,6 @@
 	#define DISUNITY_KEY_RIGHT_ALT          346
 	#define DISUNITY_KEY_RIGHT_SUPER        347
 	#define DISUNITY_KEY_MENU               348
-#else
-	#definition_DISUNITY_GLFW_is_missing
-#endif
+//#else
+	//#definition_DISUNITY_GLFW_is_missing
+//#endif

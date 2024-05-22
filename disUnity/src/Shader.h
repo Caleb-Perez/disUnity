@@ -3,7 +3,7 @@
 #include "pch.h"
 #include "Utility.h"
 #include "ShaderImplement.h"
-#include "ShaderOpenGL.h"
+
 
 namespace disUnity {
 	class DISUNITY_API Shader {

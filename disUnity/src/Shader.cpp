@@ -1,10 +1,13 @@
 #include "pch.h"
 #include "Shader.h"
+#include "codeOpenGL/ShaderOpenGL.h"
+
 
 namespace disUnity {
 	Shader::Shader(const std::string& vertexFile, const std::string& fragmentFile) {
 #ifdef DISUNITY_OPENGL
-		mImplementation = std::make_unique <ShaderOpenGL>(vertexFile, fragmentFile);
+		mImplementation = std::make_unique<ShaderOpenGL>(vertexFile, fragmentFile);
+		//mImplementation = std::make_unique <ShaderOpenGL>(std::move(vertexFile), std::move(fragmentFile));
 #else
 	#only_openGL_is_supported_so_far
 #endif
@@ -12,7 +15,8 @@ namespace disUnity {
 
 	Shader::Shader(std::string&& vertexFile, std::string&& fragmentFile) {
 #ifdef DISUNITY_OPENGL
-		mImplementation = std::make_unique <ShaderOpenGL>(std::move(vertexFile), std::move(fragmentFile));
+		mImplementation = std::make_unique<ShaderOpenGL>(vertexFile, fragmentFile);
+		//mImplementation = std::make_unique <ShaderOpenGL>(std::move(vertexFile), std::move(fragmentFile));
 #else
 		#only_openGL_is_supported_so_far
 #endif

@@ -11,6 +11,15 @@
 #include "disUnityKeys.h"
 
 namespace disUnity {
+	disUnityApplication::disUnityApplication() {
+		disUnityWindow::Init();
+		disUnityWindow::GetWindow()->Create(1000, 800);
+
+		Renderer::Init();
+
+		SetWindowCloseCallback([this]() {DefaultWindowCloseHandler(); });
+	}
+
 	void disUnityApplication::Initialize()
 	{
 	}
@@ -24,10 +33,6 @@ namespace disUnity {
 	}
 
 	void disUnityApplication::Run() {
-
-		disUnityWindow::Init();
-		disUnityWindow::GetWindow()->Create(1000, 800);
-		Renderer::Init();
 
 
 
@@ -47,7 +52,7 @@ namespace disUnity {
 				x += 50;
 		});
 
-		while (true) {
+		while (mShouldContinue) {
 
 			Renderer::ClearScreen();
 
@@ -79,6 +84,10 @@ namespace disUnity {
 
 	void disUnityApplication::SetWindowCloseCallback(std::function<void()> callbackFunc) {
 		disUnityWindow::GetWindow()->SetWindowCloseCallback(callbackFunc);
+	}
+
+	void disUnityApplication::DefaultWindowCloseHandler() {
+		mShouldContinue = false;
 	}
 }
 

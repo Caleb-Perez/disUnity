@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "Image.h"
-#include "ImageOpenGL.h"
+#include "codeOpenGL/ImageOpenGL.h"
 
 namespace disUnity {
 	Image::Image(const std::string& filePath) {

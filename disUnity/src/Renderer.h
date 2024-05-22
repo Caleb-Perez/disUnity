@@ -4,7 +4,8 @@
 #include "Utility.h"
 #include "Image.h"
 #include "RendererImplement.h"
-#include "RendererOpenGL.h"
+#include "codeOpenGL/RendererOpenGL.h"
+#include "Unit.h"
 
 namespace disUnity {
 	class DISUNITY_API Renderer{
@@ -14,6 +15,7 @@ namespace disUnity {
 
 		static void Draw(Image& pic, int x, int y);
 		static void Draw(Image& pic, Shader& shader, int x, int y);
+		static void Draw(Unit& unit);
 		static void ClearScreen();
 
 	private:

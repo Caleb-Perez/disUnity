@@ -20,6 +20,10 @@ namespace disUnity {
 		mInstance->mImplementation->Draw(pic, shader, x, y);
 	}
 
+	void Renderer::Draw(Unit& unit) {
+		mInstance->mImplementation->Draw(unit.mImage, unit.mXPosition, unit.mYPosition);
+	}
+
 	void Renderer::ClearScreen() {
 		mInstance->mImplementation->ClearScreen();
 	}

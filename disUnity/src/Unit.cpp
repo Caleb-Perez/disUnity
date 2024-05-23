@@ -34,18 +34,18 @@ namespace disUnity {
 		mYPosition += amount;
 	}
 
-	bool UnitsOverlap(const Unit& a, const Unit& b) {
-		int left_a{ a.mXPosition };
-		int right_a{ a.mXPosition + a.mImage.GetWidth() };
-		int left_b{ b.mXPosition };
-		int right_b{ b.mXPosition + b.mImage.GetWidth() };
+	DISUNITY_API bool UnitsOverlap(const Unit& a, const Unit& b) {
+		int left_a{ a.GetXCoord()};
+		int right_a{ a.GetXCoord() + a.GetWidth() };
+		int left_b{ b.GetXCoord() };
+		int right_b{ b.GetXCoord() + b.GetWidth() };
 
 		bool x_intersection{ (left_a <= left_b && left_b <= right_a) || (left_b <= left_a && left_a <= right_b) };
 
-		int bot_a{ a.mYPosition };
-		int top_a{ a.mYPosition + a.mImage.GetHeight() };
-		int bot_b{ b.mYPosition };
-		int top_b{ b.mYPosition + b.mImage.GetHeight() };
+		int bot_a{ a.GetYCoord() };
+		int top_a{ a.GetYCoord() + a.GetHeight() };
+		int bot_b{ b.GetYCoord() };
+		int top_b{ b.GetYCoord() + b.GetHeight() };
 
 		bool y_intersection{ (bot_a <= bot_b && bot_b <= top_a) || (bot_b <= bot_a && bot_a <= top_b) };
 		

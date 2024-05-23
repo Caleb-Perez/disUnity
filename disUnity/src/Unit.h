@@ -23,7 +23,7 @@ namespace disUnity {
 		int mXPosition;
 		int mYPosition;
 
-		friend DISUNITY_API bool UnitsOverlap(const Unit& a, const Unit& b);
+		//friend bool UnitsOverlap(const Unit& a, const Unit& b);
 		friend class Renderer;
 	};
 

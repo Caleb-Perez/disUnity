@@ -17,7 +17,7 @@ namespace disUnity {
 
 		Renderer::Init();
 
-		SetWindowCloseCallback([this]() {DefaultWindowCloseHandler(); });
+		SetWindowCloseCallback([this]() { DefaultWindowCloseHandler(); });
 	}
 
 	void disUnityApplication::Initialize()
@@ -34,33 +34,16 @@ namespace disUnity {
 
 	void disUnityApplication::Run() {
 
-
-
-		
-
-
-		Image pic("C:/Users/Caleb/source/repos/S24_Caleb_Perez/disUnity/Assets/test.png");
-
 		Initialize();
 
 		mNextFrameTime = std::chrono::steady_clock::now() + mFrameDuration;
 
-		int x = 50;
-
-		SetKeyPressedCallback([&x](const KeyPressed& event) {
-			if (event.GetKeyCode() == DISUNITY_KEY_RIGHT)
-				x += 50;
-		});
 
 		while (mShouldContinue) {
 
 			Renderer::ClearScreen();
 
 			OnUpdate();
-
-
-			//x %= 800;
-			Renderer::Draw(pic, x, 100);
 
 			std::this_thread::sleep_until(mNextFrameTime);
 			mNextFrameTime = std::chrono::steady_clock::now() + mFrameDuration;

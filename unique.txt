@@ -1,0 +1,24 @@
+This is my game, pacboy! 
+
+It is obviously inspired by the classic game pacman, but is simpler and not nearly as fun. The point of the game is to avoid the ghosts and eat as many fruit as you can. Everytime you eat a fruit, the number of enemies is increased by two, the enemies are shuffled around the screen, and another fruit is placed on a random place on the screen. My game has 4 main entities:
+1. The player
+2. The enemies
+3. The fruit
+4. The scoreboard
+
+and I'll be going over how exactly each of these are implemented.
+
+1. The player
+The player is implemented by having 4 units(One for each cardinal direction, each one is just the same image rotated), and a raw pointer to a unit that will always point to one of the units. Using a raw pointer over a smart pointer is a good idea in this case since we are not dynamically allocating any memory and we don't want a smart pointer to destroy our object since we will be using it again. We set the default function to the arrow keys and WASD to change the unit the pointer points to and change the coordinates of the unit. We also put bounds in our key funtions to make sure that the character never goes beyond the scope of the window. Because I did not know how to implement hold a button and I didn't want to make the character move too slowly, every button press moves the character a fixed amount, making the window more like a grid than a plane the character can freely move within.
+
+2. Enemies are implemented using their own class. There are 10 enemies at the start of the game, and eating a fruit reshuffles them and adds two more enemies. Touching them causes the player to reset their points, move the fruit, and bring the number of enemies back down to 0. The rand() function is used to shuffle the enemies and modulo is used to ensure that enmies can only spawn on the same grid that the player traverses. Measures are also taken to ensure that shuffling the enemies won't cause one to spawn on top of the player and make them lose automatically. Checking for collisions is quite inefficient because I keep a list of all the enemies, and just traverse the list everytime I check for collisions. This means that everything gets much slower the more enemies are on screen. This can be improved by using a hashmap to store enemy coordinates and search in O(1) time or keeping a sorted array of coordinates to be able to search in O(logn) time. I, however, did not opt for this approach because I wanted to use the collision function we developed in class.
+
+3. The fruit is just a single unit and is also implemented as a class. This class just has one data member: a unit for a fruit. The functions within the class are just to check whether the player overlaps with the fruit, and one to generate the fruit. When generating a fruit, measures are taken to ensure that the fruit doesn't overlap with any of the ghosts and makes getting the fruit a death sentence. Fruits, however, are not always attainable because of the limited movement of the player.
+
+4. The scoreboard is implemented using its own class. This class contains an array of 10 images to represent all 10 possible values for a digit. An integer is also used to keep track of the numeric score. Every frame, a number is displayed by continuously drawing digits to the left of their smaller digits. We do this by using modulo to print the 1's digit and then dividing by 10.
+
+The game file itself only has the data for the player itself, and an enemy member, a fruit member, and a scoreboard member. The constructor initializes the player units and the background unit. The init function initializes the arrow keys, places the player in the middle of the screen, and generates enemies and fruits. The on update function does the following:
+	1. Checks if player has hit an enemy
+	2. Checks if player has hit the fruit
+	3. Draws all units to screen. Only background and player are drawn directly using my API, everything else is wrapped inside its own class
+There is no destructor implemented for my game since we dont dynamically allocate any memory, and that is about it.
